@@ -2,11 +2,12 @@ pipeline {
     agent {
         docker {
             image 'node:14-alpine'
-            args '-p 3000:3000 -p 5000:5000 -w /home/node'
+            args '-p 3000:3000 -p 5000:5000'
         }
     }
     environment {
         CI = 'true'
+        HOME = '.'
     }
     stages {
         stage('Build') {
